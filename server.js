@@ -10,9 +10,9 @@ app.use(express.static('public'));
 
 const connection = mysql.createConnection(
     {
-        host: localhost,
-        user: root,
-        password: minchiaguardi,
-        database: movies_db
+        host: process.env.DB_HOST,
+        user: process.env.DN_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME
     }
 );
