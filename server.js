@@ -1,9 +1,18 @@
 const express = require('express');
+const mysql = require('mysql2');
 const app = express();
 const port = 3000;
 
-app.listen(port, () => {console.log(`Il server è in ascolto sulla porta ${port}`)});
+app.listen(port, () => { console.log(`Il server è in ascolto sulla porta ${port}`) });
 
 app.use(express.static('public'));
 
 
+const connection = mysql.createConnection(
+    {
+        host: localhost,
+        user: root,
+        password: minchiaguardi,
+        database: movies_db
+    }
+);
