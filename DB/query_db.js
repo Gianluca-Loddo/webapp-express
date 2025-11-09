@@ -1,11 +1,9 @@
 const connection = require('./connection');
 
-//rotta index: uso query per visualizzare tutti i film
+//rotta INDEX: uso query per visualizzare tutti i film
 function index (req, res) {
-
 //preparazione della query
 const sql = 'SELECT * from movies';
-
 //esecuzione della query
 connection.query(sql, (err, results) =>{
     if (err) {return res.status(500).json({error: 'Database query failed'});}
@@ -13,20 +11,17 @@ connection.query(sql, (err, results) =>{
 });
 };
 
-//rotta index: uso query per visualizzare tutti i film
+//rotta SHOW: uso query per visualizzare tutti i film (ed i loro dettagli) + le recensioni
 function show (req, res) {
-
 //preparazione della query
 const id = req.params.id; //prende dal browser l'id inserito come url
 const sql = 'SELECT * from movies LEFT JOIN reviews ON movies.id = reviews.movie_id WHERE movies.id = ?';
-
 //esecuzione della query
 connection.query(sql, [id], (err,results) =>{
     if (err) {return res.status(500).json({error: 'Database query failed'});}
     res.json(results);
 });
 };
-
 
 
 module.exports={index, show};
