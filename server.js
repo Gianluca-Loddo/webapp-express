@@ -12,7 +12,7 @@ app.get("/", (req,res) => {
 });
 
 
-const moviesRouter = require('./DB/ROUTER/movies');
+const moviesRouter = require('./ROUTER/movies');
 app.use("/movies", moviesRouter);
 
 
