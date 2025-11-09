@@ -1,10 +1,10 @@
 
-const query = require('./DB/query_db')
+const query = require('./DB/query_db');
 const express = require('express');
 const app = express();
 const port = 3000;
 
-app.listen(port, () => { console.log(`Il server è in ascolto sulla porta ${port}`) });
+app.listen(port, () => { console.log(`Il server è in ascolto sulla porta http://localhost:${port}`) });
 
 app.use(express.static('public'));
 
@@ -16,3 +16,7 @@ app.get("/", (req,res) => {
 
 // rotta index per la lista dei film (Con query into DATABASE)
 app.get("/index", query.index);
+
+
+// rotta show per visualizzare i dettagli film e le recensioni (eventuali)
+app.get("/:id", query.show);

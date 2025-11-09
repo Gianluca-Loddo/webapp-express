@@ -7,7 +7,21 @@ function index (req, res) {
 const sql = 'SELECT * from movies';
 
 //esecuzione della query
-connection.query(sql, (err,results) =>{
+connection.query(sql, (err, results) =>{
+    if (err) {return res.status(500).json({error: 'Database query failed'});}
+    res.json(results);
+});
+};
+
+//rotta index: uso query per visualizzare tutti i film
+function show (req, res) {
+
+//preparazione della query
+const id = req.params.id; //prende dal browser l'id inserito come url
+const sql = 'SELECT * from movies LEFT JOIN reviews ON movies.id = reviews.movie_id WHERE movies.id = ?';
+
+//esecuzione della query
+connection.query(sql, [id], (err,results) =>{
     if (err) {return res.status(500).json({error: 'Database query failed'});}
     res.json(results);
 });
@@ -15,5 +29,4 @@ connection.query(sql, (err,results) =>{
 
 
 
-
-module.exports={index};
+module.exports={index, show};

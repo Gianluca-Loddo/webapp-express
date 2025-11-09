@@ -20,5 +20,4 @@ connection.connect((err) =>{
     console.log('Connected to My SQL Database')
 });
 
-
 module.exports=connection;
