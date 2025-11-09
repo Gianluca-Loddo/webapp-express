@@ -1,5 +1,3 @@
-
-const query = require('./DB/query_db');
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -11,12 +9,10 @@ app.use(express.static('public'));
 // rotta di benvenuto
 app.get("/", (req,res) => {
     res.send("Welcome into my server!")
-}
-);
-
-// rotta index per la lista dei film (Con query into DATABASE)
-app.get("/index", query.index);
+});
 
 
-// rotta show per visualizzare i dettagli film e le recensioni (eventuali)
-app.get("/:id", query.show);
+const moviesRouter = require('./DB/ROUTER/movies');
+app.use("/movies", moviesRouter);
+
+

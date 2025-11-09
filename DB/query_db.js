@@ -23,5 +23,5 @@ connection.query(sql, [id], (err,results) =>{
 });
 };
 
-
+// esporto le funzione index e show
 module.exports={index, show};
