@@ -14,6 +14,6 @@ Bonus,
 ✅ Inserire le immagini nel progetto express,
 ✅ Inserire i dati di connessione al database come variabili d’ambiente,
 ✅ Inserire le vostre API in controller (quer_db.js),
-Inserire le vostre rotte in un router,
+✅ Inserire le vostre rotte in un router,
 Inserire un middleware per le rotte inesistenti,
 ✅ Inserire un middleware per la gestione errori.

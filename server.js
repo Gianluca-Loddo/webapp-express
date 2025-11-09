@@ -11,7 +11,7 @@ app.get("/", (req,res) => {
     res.send("Welcome into my server!")
 });
 
-
+// importo il modulo ROUTER
 const moviesRouter = require('./ROUTER/movies');
 app.use("/movies", moviesRouter);
 
