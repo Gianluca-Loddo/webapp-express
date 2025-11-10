@@ -1,4 +1,4 @@
-const query = require('../DB/query_db');
+const query = require('../controllers/query_db');
 
 
 const express = require('express');
