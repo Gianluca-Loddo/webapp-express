@@ -18,8 +18,9 @@ const id = req.params.id; //prende dal browser l'id inserito come url
 const sql = 'SELECT * from movies LEFT JOIN reviews ON movies.id = reviews.movie_id WHERE movies.id = ?';
 //esecuzione della query
 connection.query(sql, [id], (err,results) =>{
-    if (err) {return res.status(500).json({error: 'Database query failed'});}
-    res.json(results);
+    if (err) {return res.status(500).json({error: 'Database query failed ❌'});}
+    if (results.length===0) {return res.status(404).json({error: "Movie wasn't found 😲"});}
+    res.json(results[0]);
 });
 };
 
